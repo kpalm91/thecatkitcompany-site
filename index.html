@@ -50,6 +50,9 @@
   .brand { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--forest); text-decoration: none; }
   .nav-link { padding: 8px 16px; border-radius: 999px; background: var(--forest); color: var(--cream); font-weight: 700; font-size: .95rem; text-decoration: none; white-space: nowrap; }
   .nav-link:hover { background: var(--ginger); }
+  .nav-side { display: flex; align-items: center; gap: 8px; }
+  .lang { padding: 8px 12px; border: 2px solid var(--forest); border-radius: 999px; background: var(--cream); color: var(--forest); font: 700 .85rem var(--sans); cursor: pointer; }
+  .lang:hover { background: var(--butter); }
 
   .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; background: var(--cream); }
   .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -59,6 +62,7 @@
     background: var(--forest); color: var(--cream); font-size: .85rem; font-weight: 500; letter-spacing: .04em;
   }
   h1 { margin: 0 0 22px; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 7.2vw, 5.6rem); line-height: 1.02; color: var(--forest); }
+  html[lang="fr"] h1 { font-size: clamp(2.7rem, 5.8vw, 4.5rem); }
   h1 em { color: var(--ginger); font-style: italic; }
   .lead { margin: 0 0 32px; font-size: 1.2rem; max-width: 24em; }
   .cta { display: flex; flex-wrap: wrap; gap: 14px; }
@@ -163,6 +167,8 @@
     nav { padding: 16px 20px; }
     .brand { font-size: 1.1rem; }
     .nav-link { padding: 7px 12px; font-size: .85rem; }
+    .lang { padding: 5px 9px; font-size: .78rem; }
+    .brand { max-width: 9.5em; line-height: 1.15; }
     .hero { display: block; min-height: 0; padding-bottom: 92vw; }
     .scene { top: auto; bottom: 0; height: 104vw; }
     .hero-copy { padding: 92px 20px 0; }
@@ -275,30 +281,33 @@
     </svg>
     <nav>
       <a class="brand" href="#top">The Cat Kit Company</a>
-      <a class="nav-link" href="#launch">Get launch news</a>
+      <div class="nav-side">
+        <button class="lang" id="lang" type="button" aria-label="Lire en français" lang="fr">FR</button>
+        <a class="nav-link" href="#launch" data-t="nav">Get launch news</a>
+      </div>
     </nav>
     <div class="hero-copy">
-      <span class="tag">Coming in 2027</span>
-      <h1>Indoor cats deserve a little <em>wild.</em></h1>
-      <p class="lead">Fresh green grass, grown right on your windowsill. Everything you need comes in one box.</p>
+      <span class="tag" data-t="tag">Coming in 2027</span>
+      <h1 data-t="h1">Indoor cats deserve a little <em>wild.</em></h1>
+      <p class="lead" data-t="lead">Fresh green grass, grown right on your windowsill. Everything you need comes in one box.</p>
       <div class="cta">
-        <a class="btn btn-main" href="mailto:kyle@thecatkitcompany.com?subject=Tell%20me%20when%20the%20cat%20grass%20kit%20launches">Tell me when it launches</a>
-        <a class="btn btn-ghost" href="#box">What's in the box</a>
+        <a class="btn btn-main mail" data-t="notify" href="mailto:kyle@thecatkitcompany.com?subject=Tell%20me%20when%20the%20cat%20grass%20kit%20launches">Tell me when it launches</a>
+        <a class="btn btn-ghost" href="#box" data-t="boxBtn">What's in the box</a>
       </div>
     </div>
   </header>
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-row">
-      <span>Fresh grass</span><span>Grown at home</span><span>One box</span><span>Happy cats</span><span>Windowsill wild</span><span>Fresh grass</span><span>Grown at home</span><span>One box</span><span>Happy cats</span><span>Windowsill wild</span>
-      <span>Fresh grass</span><span>Grown at home</span><span>One box</span><span>Happy cats</span><span>Windowsill wild</span><span>Fresh grass</span><span>Grown at home</span><span>One box</span><span>Happy cats</span><span>Windowsill wild</span>
+      <span data-t="t1">Fresh grass</span><span data-t="t2">Grown at home</span><span data-t="t3">One box</span><span data-t="t4">Happy cats</span><span data-t="t5">Windowsill wild</span><span data-t="t1">Fresh grass</span><span data-t="t2">Grown at home</span><span data-t="t3">One box</span><span data-t="t4">Happy cats</span><span data-t="t5">Windowsill wild</span>
+      <span data-t="t1">Fresh grass</span><span data-t="t2">Grown at home</span><span data-t="t3">One box</span><span data-t="t4">Happy cats</span><span data-t="t5">Windowsill wild</span><span data-t="t1">Fresh grass</span><span data-t="t2">Grown at home</span><span data-t="t3">One box</span><span data-t="t4">Happy cats</span><span data-t="t5">Windowsill wild</span>
     </div>
   </div>
 
   <section id="box">
     <div class="wrap">
-      <p class="eyebrow reveal">The kit</p>
-      <h2 class="reveal">All you need. Nothing to hunt down.</h2>
+      <p class="eyebrow reveal" data-t="kit">The kit</p>
+      <h2 class="reveal" data-t="kitH">All you need. Nothing to hunt down.</h2>
       <div class="cards">
         <article class="card reveal">
           <svg viewBox="0 0 360 230" aria-hidden="true">
@@ -307,7 +316,7 @@
             <g id="cardGrass"></g>
             <use href="#planter" transform="translate(180 112) scale(1.1)"/>
           </svg>
-          <div><h3>The planter</h3><p>Designed from scratch to sit neatly on a windowsill and look good doing it.</p></div>
+          <div><h3 data-t="c1">The planter</h3><p data-t="c1p">Designed from scratch to sit neatly on a windowsill and look good doing it.</p></div>
         </article>
         <article class="card reveal">
           <svg viewBox="0 0 360 230" aria-hidden="true">
@@ -319,7 +328,7 @@
             </g>
             <path d="M0 196C90 170 270 170 360 196V230H0Z" fill="#7a5a3c"/>
           </svg>
-          <div><h3>The seeds</h3><p>Pre-measured and ready to sow, so there's no guessing how much to use.</p></div>
+          <div><h3 data-t="c2">The seeds</h3><p data-t="c2p">Pre-measured and ready to sow, so there's no guessing how much to use.</p></div>
         </article>
         <article class="card reveal">
           <svg viewBox="0 0 360 230" aria-hidden="true">
@@ -331,7 +340,7 @@
               <path d="M180 92C150 92 136 76 132 50 164 50 180 66 180 92ZM180 78C206 78 220 64 224 40 196 40 180 54 180 78Z" fill="#5d8a4e"/>
             </g>
           </svg>
-          <div><h3>The growing medium</h3><p>Included in the box. Just add water and let the grass do its thing.</p></div>
+          <div><h3 data-t="c3">The growing medium</h3><p data-t="c3p">Included in the box. Just add water and let the grass do its thing.</p></div>
         </article>
       </div>
     </div>
@@ -359,9 +368,9 @@
         <use href="#planter" transform="translate(372 349) scale(.78)"/>
       </svg>
       <div class="reveal">
-        <p class="eyebrow">Why we're doing this</p>
-        <h2>Every windowsill deserves a patch of green.</h2>
-        <p>Indoor cats don't get to wander through the garden, so we're bringing a small piece of it to them. A patch of their very own, a little ritual for you, and one very pleased cat.</p>
+        <p class="eyebrow" data-t="why">Why we're doing this</p>
+        <h2 data-t="whyH">Every windowsill deserves a patch of green.</h2>
+        <p data-t="whyP">Indoor cats don't get to wander through the garden, so we're bringing a small piece of it to them. A patch of their very own, a little ritual for you, and one very pleased cat.</p>
       </div>
     </div>
   </section>
@@ -370,12 +379,12 @@
     <div class="grow-sticky">
       <div class="wrap grow-grid">
         <div>
-          <p class="eyebrow">How it'll work</p>
-          <h2>Three steps to one happy cat.</h2>
+          <p class="eyebrow" data-t="how">How it'll work</p>
+          <h2 data-t="howH">Three steps to one happy cat.</h2>
           <ol class="steps" id="steps">
-            <li class="on" data-n="1"><h3>Plant</h3><p>Add the growing medium and scatter the seeds.</p></li>
-            <li data-n="2"><h3>Water</h3><p>Pop it somewhere sunny and watch the green come up.</p></li>
-            <li data-n="3"><h3>Graze</h3><p>Stand back and let your cat find their new favourite spot.</p></li>
+            <li class="on" data-n="1"><h3 data-t="s1">Plant</h3><p data-t="s1p">Add the growing medium and scatter the seeds.</p></li>
+            <li data-n="2"><h3 data-t="s2">Water</h3><p data-t="s2p">Pop it somewhere sunny and watch the green come up.</p></li>
+            <li data-n="3"><h3 data-t="s3">Graze</h3><p data-t="s3p">Stand back and let your cat find their new favourite spot.</p></li>
           </ol>
         </div>
         <svg viewBox="0 0 500 500" aria-hidden="true">
@@ -413,16 +422,75 @@
 
   <section class="launch" id="launch">
     <div class="wrap">
-      <h2>Be first in line.</h2>
-      <p>We're a small Ontario company getting our first kits ready for 2027. Send us a note and we'll tell you the moment they're available.</p>
-      <a class="btn btn-main" href="mailto:kyle@thecatkitcompany.com?subject=Tell%20me%20when%20the%20cat%20grass%20kit%20launches">Tell me when it launches</a>
-      <p class="small">Supplier or retailer? Reach Kyle at <a href="mailto:kyle@thecatkitcompany.com">kyle@thecatkitcompany.com</a>.</p>
+      <h2 data-t="launchH">Be first in line.</h2>
+      <p data-t="launchP">We're a small Ontario company getting our first kits ready for 2027. Send us a note and we'll tell you the moment they're available.</p>
+      <a class="btn btn-main mail" data-t="notify" href="mailto:kyle@thecatkitcompany.com?subject=Tell%20me%20when%20the%20cat%20grass%20kit%20launches">Tell me when it launches</a>
+      <p class="small" data-t="small">Supplier or retailer? Reach Kyle at <a href="mailto:kyle@thecatkitcompany.com">kyle@thecatkitcompany.com</a>.</p>
     </div>
   </section>
 
   <footer>&copy; 2026 The Cat Kit Company. Ontario, Canada.</footer>
 
   <script>
+    // French text for each data-t element. English stays in the page itself.
+    const fr = {
+      nav: "Me prévenir",
+      tag: "Disponible en 2027",
+      h1: "Un peu de <em>nature</em> pour les chats d'intérieur.",
+      lead: "De l'herbe fraîche et bien verte, cultivée directement sur le rebord de votre fenêtre. Tout ce qu'il vous faut tient dans une seule boîte.",
+      notify: "Prévenez-moi du lancement",
+      boxBtn: "Que contient la boîte ?",
+      t1: "Herbe fraîche", t2: "Cultivée à la maison", t3: "Une seule boîte", t4: "Chats heureux", t5: "Un coin de nature",
+      kit: "Le kit",
+      kitH: "Tout ce qu'il faut. Rien à chercher.",
+      c1: "La jardinière",
+      c1p: "Conçue de A à Z pour se poser joliment sur un rebord de fenêtre, et faire son effet.",
+      c2: "Les graines",
+      c2p: "Déjà dosées et prêtes à semer, pour ne pas avoir à deviner la quantité.",
+      c3: "Le substrat",
+      c3p: "Inclus dans la boîte. Il suffit d'ajouter de l'eau et de laisser pousser l'herbe.",
+      why: "Pourquoi nous faisons cela",
+      whyH: "Chaque rebord de fenêtre mérite son coin de verdure.",
+      whyP: "Les chats d'intérieur ne peuvent pas se promener au jardin, alors nous leur en apportons un petit morceau. Un carré rien qu'à eux, un petit rituel pour vous, et un chat comblé.",
+      how: "Comment ça marchera",
+      howH: "Trois étapes pour un chat heureux.",
+      s1: "Planter", s1p: "Ajoutez le substrat et semez les graines.",
+      s2: "Arroser", s2p: "Placez le tout au soleil et regardez le vert apparaître.",
+      s3: "Brouter", s3p: "Reculez et laissez votre chat découvrir son nouveau coin préféré.",
+      launchH: "Soyez les premiers.",
+      launchP: "Nous sommes une petite entreprise de l'Ontario qui prépare ses premiers kits pour 2027. Écrivez-nous et nous vous préviendrons dès qu'ils seront disponibles.",
+      small: "Fournisseur ou détaillant ? Contactez Kyle à <a href=\"mailto:kyle@thecatkitcompany.com\">kyle@thecatkitcompany.com</a>."
+    };
+    const mailEn = document.querySelector(".mail").href;
+    const mailFr = "mailto:kyle@thecatkitcompany.com?subject=" + encodeURIComponent("Prévenez-moi du lancement du kit d'herbe à chat");
+    const descEn = document.querySelector('meta[name="description"]').content;
+    const descFr = "Un kit d'herbe à chat pour les chats d'intérieur : jardinière, graines et substrat dans une seule boîte. Par The Cat Kit Company, en Ontario, disponible en 2027.";
+
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-t]").forEach(el => {
+        el.dataset.en ??= el.innerHTML;
+        el.innerHTML = lang === "fr" ? fr[el.dataset.t] : el.dataset.en;
+      });
+      document.querySelectorAll(".mail").forEach(a => { a.href = lang === "fr" ? mailFr : mailEn; });
+      document.querySelector('meta[name="description"]').content = lang === "fr" ? descFr : descEn;
+      const btn = document.getElementById("lang");
+      btn.textContent = lang === "fr" ? "EN" : "FR";
+      btn.lang = lang === "fr" ? "en" : "fr";
+      btn.setAttribute("aria-label", lang === "fr" ? "Read in English" : "Lire en français");
+    }
+
+    let saved = null;
+    try { saved = localStorage.getItem("lang"); } catch (e) {}
+    const asked = new URLSearchParams(location.search).get("lang");
+    let lang = asked === "fr" || asked === "en" ? asked : saved || /^fr\b/i.test(navigator.language) && "fr" || "en";
+    if (lang === "fr") setLang("fr");
+    document.getElementById("lang").addEventListener("click", () => {
+      lang = lang === "fr" ? "en" : "fr";
+      setLang(lang);
+      try { localStorage.setItem("lang", lang); } catch (e) {}
+    });
+
     const $ = id => document.getElementById(id);
     const clamp = (n, lo = 0, hi = 1) => Math.min(hi, Math.max(lo, n));
     const greens = ["#24402f", "#2f5540", "#5d8a4e", "#7da267"];
